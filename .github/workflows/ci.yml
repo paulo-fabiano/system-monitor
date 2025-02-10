@@ -1,0 +1,24 @@
+name: First Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Test Build Docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Setup Docker
+        run: docker --version
+
+      - name: Build da imagem Docker
+        run: docker build -t meu-app:latest .
+
+      - name: Listar imagens Docker
+        run: docker images
