@@ -1,0 +1,21 @@
+name: Run Dockerfile
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+          name: Checkout do código
+          uses: actions/checkout@v3
+
+          name: Build image
+          uses: "docker build -t system_monitor ."
+
+          name: Execute image
+          user: "docker run system_monitor:lates"
