@@ -7,7 +7,7 @@ on:
 jobs:
 
   ContinuosIntegration:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout of code
