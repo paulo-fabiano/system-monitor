@@ -16,8 +16,8 @@ jobs:
       - name: Login in Docker Hub
         uses: docker/login-action@v3.3.0
         with: 
-          username: ${{DOCKERHUB_USUARIO}}
-          password: ${{DOCKERHUB_SENHA}}
+          username: ${{secrets.DOCKERHUB_USUARIO}}
+          password: ${{secrets.DOCKERHUB_SENHA}}
 
       - name: Build Imagem Dockerfile.Playwright
         uses: docker/build-push-action@v6.13.0

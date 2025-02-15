@@ -1,3 +1,10 @@
+-- Criando DATABASE
+CREATE DATABASE playwright;
+
+-- Acessando o DATABASE
+\c playwright;
+
+-- Criando a tabela que armazenará os resultados dos testes
 CREATE TABLE resultados (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
