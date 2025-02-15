@@ -1,0 +1,39 @@
+name: Publish DockerHub
+
+on: 
+  push: 
+    branches: ["main"]
+
+jobs:
+
+  ContinuosIntegration:
+    runs-on: ubuntu:latest
+
+    steps:
+      - name: Checkout of code
+        uses: actions/checkout@v4.2.2
+
+      - name: Login in Docker Hub
+        uses: docker/login-action@v3.3.0
+        with: 
+          username: ${{DOCKERHUB_USUARIO}}
+          password: ${{DOCKERHUB_SENHA}}
+
+      - name: Build Imagem Dockerfile.Playwright
+        uses: docker/build-push-action@v6.13.0
+        with: 
+          context: .
+          file: Dockerfile.Playwright
+          push: true
+          tags:
+            dockerfile.playwright/system-monitor:latest
+
+      - name: Build Image Dockerfile.db
+        uses: docker/build-push-action@v6.13.0
+        with:
+          context: .
+          file: Dockerfile.db
+          push: true
+          tags:
+            dockerfile.db/system-monitor:latest
+      
