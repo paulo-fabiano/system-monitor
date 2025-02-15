@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  ContinuosIntegration:
+  ContinuousIntegration:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,7 @@ jobs:
           context: .
           file: Dockerfile.Playwright
           push: true
-          tags:
+          tags: |
             dockerfile.playwright/system-monitor:latest
 
       - name: Build Image Dockerfile.db
@@ -34,6 +34,6 @@ jobs:
           context: .
           file: Dockerfile.db
           push: true
-          tags:
+          tags: |
             dockerfile.db/system-monitor:latest
       
