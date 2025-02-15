@@ -26,7 +26,7 @@ jobs:
           file: Dockerfile.Playwright
           push: true
           tags: |
-            pfabianof/system-monitor-playwright:v1
+            pfabianofilho/system-monitor-playwright:v1
 
       - name: Build Image Dockerfile.db
         uses: docker/build-push-action@v6.13.0
